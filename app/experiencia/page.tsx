@@ -12,6 +12,12 @@ const experiencias = [
       "Atuação em Direito Público, Administrativo, Empresarial, Imobiliário, Bancário, Penal Tributário e matérias relacionadas à Administração Pública.",
   },
   {
+    periodo: "Desde 2024",
+    titulo: "Alexandre Junqueira Consultoria e Assessoria Empresarial",
+    texto:
+      "Sócio, com expertise em Direito Público, à frente da consultoria e assessoria empresarial, financeira e de gestão pública.",
+  },
+  {
     periodo: "Desde 2002",
     titulo: "Santa Casa de Ribeirão Preto",
     texto:

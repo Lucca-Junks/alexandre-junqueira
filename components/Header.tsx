@@ -47,17 +47,53 @@ export default function Header() {
     ? "text-[#BEB5AB]"
     : "text-[#635C55]";
 
-  function menuHref(anchor: string) {
-    if (pathname === "/") {
-      return `#${anchor}`;
+  function scrollHome(anchor: string) {
+    if (anchor === "inicio") {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+
+      return;
     }
 
-    return `/#${anchor}`;
+    const section = document.getElementById(anchor);
+
+    if (!section) {
+      return;
+    }
+
+    const headerOffset = 68;
+
+    const position =
+      section.getBoundingClientRect().top +
+      window.scrollY -
+      headerOffset;
+
+    window.scrollTo({
+      top: position,
+      behavior: "smooth",
+    });
+  }
+
+  function handleMenuClick(anchor: string) {
+    setMenuOpen(false);
+
+    // Já está na home
+    if (pathname === "/") {
+      scrollHome(anchor);
+      return;
+    }
+
+    // Está em outra página
+    // A HOME vai ler esse parâmetro e fazer o scroll.
+    window.location.href = `/?secao=${anchor}`;
   }
 
   return (
     <>
-      {/* HEADER GLOBAL */}
+      {/* HEADER */}
 
       <header
         className={`
@@ -75,7 +111,7 @@ export default function Header() {
       >
         <div className="mx-auto grid h-full max-w-[1580px] grid-cols-3 items-center px-6 md:px-10">
 
-          {/* MENU */}
+          {/* ESQUERDA */}
 
           <button
             onClick={() => setMenuOpen(true)}
@@ -89,7 +125,7 @@ export default function Header() {
             </span>
           </button>
 
-          {/* NOME */}
+          {/* CENTRO */}
 
           <a
             href="/"
@@ -101,9 +137,15 @@ export default function Header() {
 
             {!scrolled && (
               <p
-                className={`mt-1.5 hidden text-[9px] tracking-[0.2em] md:block ${muted}`}
+                className={`
+                  mt-1.5 hidden
+                  text-[9px]
+                  tracking-[0.2em]
+                  md:block
+                  ${muted}
+                `}
               >
-                ADVOCACIA • CONSULTORIA • GESTÃO
+                ADVOCACIA
               </p>
             )}
           </a>
@@ -137,12 +179,10 @@ export default function Header() {
               className="hidden items-center gap-2 text-xs transition hover:text-[#A58C4E] lg:flex"
             >
               <Phone size={15} />
-
               (16) 99106-2491
             </a>
 
           </div>
-
         </div>
       </header>
 
@@ -160,9 +200,11 @@ export default function Header() {
 
             <div className="flex h-full flex-col px-8 py-8 md:px-10">
 
+              {/* TOPO */}
+
               <div className="flex items-center justify-between">
 
-                <span className="text-xs tracking-[0.18em] text-[#C1AA68]">
+                <span className="text-xs tracking-[0.18em] text-[#A58C4E]">
                   NAVEGAÇÃO
                 </span>
 
@@ -183,6 +225,8 @@ export default function Header() {
 
               </div>
 
+              {/* LINKS */}
+
               <nav className="mt-12 flex flex-col">
 
                 {[
@@ -194,13 +238,17 @@ export default function Header() {
                   ["Formação", "formacao"],
                   ["Contato", "contato"],
                 ].map(([nome, anchor]) => (
-                  <a
+                  <button
                     key={nome}
-                    href={menuHref(anchor)}
-                    onClick={() => setMenuOpen(false)}
+                    type="button"
+                    onClick={() =>
+                      handleMenuClick(anchor)
+                    }
                     className="
+                      w-full
                       border-b border-white/10
                       py-4
+                      text-left
                       text-[17px]
                       text-[#BEB5AB]
                       transition-all duration-200
@@ -209,10 +257,12 @@ export default function Header() {
                     "
                   >
                     {nome}
-                  </a>
+                  </button>
                 ))}
 
               </nav>
+
+              {/* FINAL */}
 
               <div className="mt-auto border-t border-white/10 pt-7">
 
@@ -220,14 +270,20 @@ export default function Header() {
                   Alexandre Junqueira
                 </p>
 
+                <p className="mt-1 text-xs tracking-[0.14em] text-[#A89F95]">
+                  ADVOCACIA
+                </p>
+
                 <a
                   href={whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="
-                    mt-5 inline-flex items-center gap-3
-                    text-sm text-[#C1AA68]
-                    transition hover:text-white
+                    mt-5 inline-flex
+                    items-center gap-3
+                    text-sm text-[#A58C4E]
+                    transition
+                    hover:text-white
                   "
                 >
                   WhatsApp
@@ -238,7 +294,6 @@ export default function Header() {
               </div>
 
             </div>
-
           </aside>
         </>
       )}

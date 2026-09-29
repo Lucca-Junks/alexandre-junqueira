@@ -667,59 +667,35 @@ export default function Home() {
 
               {[
                 {
-                  logo:
-                    "/logos/unaerp.png",
-
                   tipo:
                     "Direito",
 
                   curso:
                     "Bacharelado em Direito",
-
-                  instituicao:
-                    "Universidade de Ribeirão Preto",
                 },
 
                 {
-                  logo:
-                    "/logos/anhanguera.png",
-
                   tipo:
                     "MBA",
 
                   curso:
                     "Gestão e Economia Empresarial",
-
-                  instituicao:
-                    "Universidade Anhanguera",
                 },
 
                 {
-                  logo:
-                    "/logos/anhanguera.png",
-
                   tipo:
                     "Pós-graduação",
 
                   curso:
                     "Direito Administrativo",
-
-                  instituicao:
-                    "Universidade Anhanguera",
                 },
 
                 {
-                  logo:
-                    "/logos/anhanguera.png",
-
                   tipo:
                     "Pós-graduação",
 
                   curso:
                     "Políticas Públicas",
-
-                  instituicao:
-                    "Universidade Anhanguera",
                 },
               ].map((item) => (
                 <div
@@ -728,20 +704,9 @@ export default function Home() {
                     grid items-center gap-5
                     border-t ${border}
                     py-6
-                    md:grid-cols-[70px_0.35fr_1fr_0.8fr]
+                    md:grid-cols-[0.35fr_1fr]
                   `}
                 >
-                  <div className="relative h-12 w-12 overflow-hidden rounded-[8px] bg-white/90">
-
-                    <Image
-                      src={item.logo}
-                      alt={item.instituicao}
-                      fill
-                      className="object-contain p-1.5"
-                    />
-
-                  </div>
-
                   <span className="text-xs tracking-[0.12em] text-[#A58C4E]">
                     {item.tipo}
                   </span>
@@ -749,10 +714,6 @@ export default function Home() {
                   <h3 className="font-serif text-xl md:text-2xl">
                     {item.curso}
                   </h3>
-
-                  <p className={muted}>
-                    {item.instituicao}
-                  </p>
 
                 </div>
               ))}

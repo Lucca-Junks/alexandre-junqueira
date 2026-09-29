@@ -87,9 +87,11 @@ export default function ConsultoriaPage() {
               </div>
 
               <p className={`self-end text-lg leading-8 ${muted}`}>
-                A Alexandre Junqueira Consultoria e Assessoria Empresarial
-                atua no apoio à gestão, planejamento, análise de riscos,
-                processos e desenvolvimento estratégico.
+                A Alexandre Junqueira Consultoria e Assessoria Empresarial,
+                sob a liderança de seu sócio Alexandre Junqueira, com
+                expertise em Direito Público, atua no apoio à gestão,
+                planejamento, análise de riscos, processos e desenvolvimento
+                estratégico.
               </p>
             </div>
           </div>
