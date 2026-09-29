@@ -685,6 +685,9 @@ export default function Home() {
 
                   curso:
                     "Bacharelado em Direito",
+
+                  instituicao:
+                    "Universidade de Ribeirão Preto",
                 },
 
                 {
@@ -717,7 +720,7 @@ export default function Home() {
                     grid items-center gap-5
                     border-t ${border}
                     py-6
-                    md:grid-cols-[0.35fr_1fr]
+                    md:grid-cols-[0.35fr_1fr_0.8fr]
                   `}
                 >
                   <span className="text-xs tracking-[0.12em] text-[#A58C4E]">
@@ -727,6 +730,10 @@ export default function Home() {
                   <h3 className="font-serif text-xl md:text-2xl">
                     {item.curso}
                   </h3>
+
+                  <p className={muted}>
+                    {item.instituicao}
+                  </p>
 
                 </div>
               ))}
