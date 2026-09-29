@@ -128,6 +128,17 @@ const experiencias = [
 
   {
     destaque:
+      "Desde 2024",
+
+    titulo:
+      "Alexandre Junqueira Consultoria e Assessoria Empresarial",
+
+    texto:
+      "Sócio, com expertise em Direito Público, à frente da consultoria e assessoria empresarial, financeira e de gestão pública.",
+  },
+
+  {
+    destaque:
       "TCESP e TCU",
 
     titulo:
@@ -596,9 +607,11 @@ export default function Home() {
                 </h2>
 
                 <p className="mt-7 max-w-[760px] text-lg leading-8 text-[#BBB2A8]">
-                  Consultoria voltada ao planejamento, análise de riscos,
-                  melhoria de processos, contratos, organização interna
-                  e desenvolvimento estratégico.
+                  Sob a liderança de seu sócio Alexandre Junqueira, com
+                  expertise em Direito Público, a consultoria atua no
+                  planejamento, análise de riscos, melhoria de processos,
+                  contratos, organização interna e desenvolvimento
+                  estratégico.
                 </p>
 
                 <a
